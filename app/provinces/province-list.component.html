@@ -1,0 +1,31 @@
+<div class="row">
+
+    <div class="col-md-2 col-sm-2 ">
+
+    </div>
+    <div class="col-md-5 col-sm-5">
+        Search:
+        <input type="text" [(ngModel)]='listFilter'>
+        <hr>
+
+        <table class="table table-bordered">
+            <thead class="bg-success">
+                <tr>
+                    <th>Province Name</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let province of provinces | provinceFilter: listFilter'>
+                    <td><a [routerLink]="['/province', province.provinceName]">{{province.provinceName}} ({{province.provinceCode}})</a>
+                    </td>
+                    <td><a [routerLink]="['/province', province.provinceName]">{{province.provincePopulation}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-5 col-sm-5">
+
+    </div>
+</div>
