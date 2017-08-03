@@ -16,6 +16,7 @@ export class ProvinceListComponent implements OnInit {
     provinces: IProvince[];
     errorMessage: string;
     populationFilter: number;
+    sortBy: string;
     constructor(private _provinceService: ProvinceService){
     }
     
@@ -23,5 +24,15 @@ export class ProvinceListComponent implements OnInit {
         this._provinceService.getProvinces()
         .subscribe(provinces => this.provinces = provinces,
                error => this.errorMessage = <any>error);  
-    }  
+    }
+    
+    sortType(sort: string) {
+        if (sort === 'provincePopulation'){
+            this.provinces = this.provinces.sort(this.sortByPopulation);
+        }
+    }
+
+    sortByPopulation(a: IProvince, b: IProvince){
+        return (b.provincePopulation) - (a.provincePopulation); 
+    }
 }
