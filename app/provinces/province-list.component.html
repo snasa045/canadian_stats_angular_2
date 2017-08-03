@@ -12,7 +12,11 @@
             <thead class="bg-success">
                 <tr>
                     <th>Province Name</th>
-                    <th>Population</th>
+                    <th>
+                        <a href="#" (click)="sortType('provincePopulation')" [class.active]="sortBy === 'provincePopulation'">
+                        Population
+                        </a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
